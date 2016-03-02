@@ -17,6 +17,7 @@ class ToDoListTableViewController: UITableViewController {
         for i in self.completedItems {
             if yesterday.earlierDate(i.completionDate) == i.completionDate && i.completed{
                 self.completedItems.removeAtIndex(completedItems.indexOf(i)!)
+                self.toDoItems.removeObjectAtIndex(toDoItems.indexOfObject(i))
             }
         }
         tableView.reloadData()
