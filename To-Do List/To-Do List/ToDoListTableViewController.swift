@@ -12,13 +12,14 @@ class ToDoListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //delete completed tasks over 24 hours
         let yesterday = NSDate(timeIntervalSinceNow: -3600*24)
         for i in self.completedItems {
-            if yesterday.earlierDate(i.completionDate) == i.completionDate {
+            if yesterday.earlierDate(i.completionDate) == i.completionDate && i.completed{
                 self.completedItems.removeAtIndex(completedItems.indexOf(i)!)
             }
         }
-
+        tableView.reloadData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -48,7 +49,7 @@ class ToDoListTableViewController: UITableViewController {
         let CellIndentifier: NSString = "ListPrototypeCell"
         let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIndentifier as String)! as UITableViewCell
         let todoitem: ToDoItem = self.toDoItems.objectAtIndex(indexPath.row) as! ToDoItem
-        cell.textLabel!.text = todoitem.itemName as String
+        cell.textLabel!.text = todoitem.itemName as String + String(self.completedItems.count)
         //display date with the subtitle
         let timestamp = NSDateFormatter.localizedStringFromDate(todoitem.creationDate, dateStyle: .MediumStyle, timeStyle: .ShortStyle)
         if todoitem.subtitle.length > 0 {
