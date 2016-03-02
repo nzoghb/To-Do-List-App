@@ -12,6 +12,10 @@ class AddNewItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        TextField.becomeFirstResponder()
+        //allows for tap recognition
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -37,12 +41,11 @@ class AddNewItemViewController: UIViewController {
         }
     }
     
-    
-    
-    //Hide keyboard
-//    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-//        self.view.endEditing(true)
-//    }
-    
+    //hide keyboard when anywhere else press
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+
 }
 

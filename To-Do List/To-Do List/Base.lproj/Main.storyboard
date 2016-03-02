@@ -153,7 +153,7 @@
                     <navigationItem key="navigationItem" id="Gjq-4u-XQN">
                         <barButtonItem key="leftBarButtonItem" title="Stats" id="nb7-rN-ezN">
                             <connections>
-                                <segue destination="A9g-JM-ZE2" kind="show" id="uNX-bY-7mp"/>
+                                <segue destination="A9g-JM-ZE2" kind="show" identifier="toStats" id="uNX-bY-7mp"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DFm-kM-C5j">

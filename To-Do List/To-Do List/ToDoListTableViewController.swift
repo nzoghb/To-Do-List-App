@@ -45,6 +45,13 @@ class ToDoListTableViewController: UITableViewController {
         return self.toDoItems.count
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toStats" {
+            let statsVC: StatsViewController = segue.destinationViewController as! StatsViewController
+            statsVC.numberReceived = self.completedItems.count
+        }
+    }
+    
     //sets text of cell, according to what was typed into the textbox
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let CellIndentifier: NSString = "ListPrototypeCell"

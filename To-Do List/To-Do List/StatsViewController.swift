@@ -10,17 +10,16 @@ import UIKit
 
 class StatsViewController: UIViewController {
     
+    var numberReceived: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let source = 
+        lengthOfCompletedArray.text = String(numberReceived)
 //        alterNumber(source.lengthInt)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     @IBOutlet weak var lengthOfCompletedArray: UILabel!
     
-    func alterNumber(lengthOfCompletedList: Int) {
-        
-    }
     
 }
