@@ -49,7 +49,7 @@ class ToDoListTableViewController: UITableViewController {
         let CellIndentifier: NSString = "ListPrototypeCell"
         let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(CellIndentifier as String)! as UITableViewCell
         let todoitem: ToDoItem = self.toDoItems.objectAtIndex(indexPath.row) as! ToDoItem
-        cell.textLabel!.text = todoitem.itemName as String + String(self.completedItems.count)
+        cell.textLabel!.text = todoitem.itemName as String
         //display date with the subtitle
         let timestamp = NSDateFormatter.localizedStringFromDate(todoitem.creationDate, dateStyle: .MediumStyle, timeStyle: .ShortStyle)
         if todoitem.subtitle.length > 0 {
